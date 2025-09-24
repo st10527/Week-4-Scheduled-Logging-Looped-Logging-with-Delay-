@@ -1,30 +1,60 @@
-# Week 3 – Structured Logging (CSV Format)
+# Week 4 – Scheduled Logging (Looped Logging with Delay)
 
 ## Objective
 
-Modify your logging system to save data into a CSV file format with the following columns:
+Enhance your existing logging script by introducing **automation**.  
+Instead of logging system info once per execution, you will now log **multiple times automatically**, with a delay between each log.
 
-- Timestamp
-- CPU usage
-- Memory usage
-- Disk usage
-
-Use Python's built-in `csv` module to write data.
+---
 
 ## Tasks
 
-- Create `log.csv` if it doesn't exist
-- Add a header row: `Timestamp, CPU, Memory, Disk`
-- Append one row each time the script is run
+1. Collect system resource usage:
+   - Timestamp
+   - CPU (%)
+   - Memory (%)
+   - Disk (%)
 
-## Example Output (log.csv)
+2. Write each log entry to `log.csv` in the same format as Week 3.
 
+3. Add a loop to:
+   - Repeat the logging process **5 times**
+   - Wait **10 seconds** between each entry
+
+4. Each run of the script should add **5 new rows** to `log.csv`.
+
+---
+
+## Tools to Use
+
+- `psutil` for system info  
+- `datetime` for timestamps  
+- `csv` module for writing  
+- `time.sleep()` for delays  
+- `for` loop to repeat logging
+
+---
+
+## Example Output in `log.csv`
 Timestamp,CPU,Memory,Disk
-2025-09-21 14:10:45,17.4,43.1,58.3
-2025-09-21 14:12:01,12.8,40.5,58.2
+2025-09-21 14:00:01,18.2,40.3,58.7
+2025-09-21 14:00:11,20.4,42.5,58.9
+2025-09-21 14:00:21,21.1,43.8,59.0
+…
+---
 
-## Submission
+## Submission Checklist
 
-- Push `main.py` to GitHub
-- Push `log.csv` with at least 2 records
-- Include a screenshot of execution or log file view
+- [ ] `main.py` includes loop and delay logic  
+- [ ] `log.csv` contains at least 5 new entries  
+- [ ] Code committed and pushed to GitHub  
+- [ ] Screenshot of either terminal or `log.csv` included in the repo
+
+---
+
+## Suggested Commit Message
+
+```bash
+git add .
+git commit -m "Add scheduled logging (Week 4)"
+git push
